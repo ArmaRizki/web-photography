@@ -1,0 +1,62 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: elvove-photography
+
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://database:5432/photographer_portfolio}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:safdar}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+app:
+  upload:
+    dir: uploads/
+
+  mail:
+    from: ${MAIL_FROM:${MAIL_USERNAME}}
+    from-name: ${MAIL_FROM_NAME:ELVOVE Photography}
+
+  jwt:
+    secret: ${JWT_SECRET:mySuperSecretKeyForDevelopment12345678901234567890}
+    expiration-ms: 86400000
+
+  cors:
+    allowed-origins: ${FRONTEND_URL:http://localhost:5173}
+
+logging:
+  level:
+    com.portfolio.photographer: DEBUG
+    org.springframework.security: INFO

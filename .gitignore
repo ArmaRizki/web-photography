@@ -1,0 +1,73 @@
+cat > .gitignore <<'EOF'
+# Environment secrets
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+dist/
+build/
+frontend/dist/
+backend/target/
+
+# Local application data
+local-data/
+backend/uploads/
+
+# Database and local backups
+*.sql
+*.dump
+*.bak
+*.backup-*
+.backup-*/
+.elvove-*-backup*/
+.elvove-style-backup-*/
+.rebrand-backup*/
+backup-*/
+backup-thumbnail/
+backup-terms-*/
+
+# Archives and temporary files
+*.tar
+elvove-source.txt
+--builder
+--load
+--no-cache
+--platform
+-t
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Windows metadata and shortcuts
+*.Zone.Identifier
+*.lnk
+Thumbs.db
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Temporary maintenance scripts
+/add-smtp-sidebar.py
+/fix-elvove-sidebar.py
+/setup-elvove-smtp.py
+/setup-elvove-smtp-fixed.py
+/setup-elvove-smtppp.py
+/update-elvove-calendar-no-extra-deps.py
+/rebrand-elvove.py
+/fix-booking-terms.sh
+/update-booking-terms.sh
+/update-terms-frontend.sh
+EOF*:Zone.Identifier

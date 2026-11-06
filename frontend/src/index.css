@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
+@import "tailwindcss";
+
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+@theme {
+  --color-ink: #ffffff;
+  --color-ink-soft: #ffffff;
+  --color-ivory: #111827;
+  --color-ivory-dim: #111827;
+  --color-brass: #E11D48;
+  --color-brass-light: #E11D48;
+  --color-burgundy: #5c2333;
+  --color-line: #e5e7eb;
+
+  --font-display: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+}
+
+/* Film sprocket-hole divider — the site's signature motif */
+.sprocket-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sprocket-rule::before,
+.sprocket-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-line) 0px,
+    var(--color-line) 4px,
+    transparent 4px,
+    transparent 10px
+  );
+}
+
+/* Frame number label, like a negative strip */
+.frame-number::before {
+  content: attr(data-frame);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--color-brass);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+/* All display headings now use Inter Bold. */
+.font-display {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
